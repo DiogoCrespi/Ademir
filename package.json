@@ -1,0 +1,17 @@
+{
+  "name": "sistema-vendas",
+  "version": "1.0.0",
+  "description": "Sistema de vendas com interface moderna",
+  "main": "database/init.js",
+  "scripts": {
+    "init-db": "node database/init.js",
+    "start": "python -m http.server 3000"
+  },
+  "keywords": ["vendas", "pos", "sistema"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sqlite3": "^5.1.6"
+  }
+}
+
