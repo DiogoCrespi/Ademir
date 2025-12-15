@@ -1,0 +1,329 @@
+[
+  {
+    "id": 1765802287713,
+    "codigo": "ING1765802287713M2CUB",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:38:07.713Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802289561,
+    "codigo": "ING17658022895618GWWG",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:38:09.561Z",
+    "liberado": true,
+    "dataLiberacao": "2025-12-15T12:38:32.573Z"
+  },
+  {
+    "id": 1765802294812,
+    "codigo": "ING1765802294812GKKWE",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:38:14.812Z",
+    "liberado": true,
+    "dataLiberacao": "2025-12-15T12:38:23.775Z"
+  },
+  {
+    "id": 1765802297646,
+    "codigo": "ING1765802297646YCGLX",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:38:17.646Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802407992,
+    "codigo": "ING1765802407992ILYQP",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:40:07.992Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802667482,
+    "codigo": "ING17658026674825G30A",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:44:27.482Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802670357,
+    "codigo": "ING17658026703572H8VZ",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:44:30.357Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802673669,
+    "codigo": "ING1765802673669LF35U",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:44:33.669Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802767000,
+    "codigo": "ING1765802767000AUD6Y",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:46:07.000Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802768149,
+    "codigo": "ING1765802768149NCKQZ",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:46:08.149Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802971550,
+    "codigo": "ING17658029715505TXM7",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:49:31.550Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802971557,
+    "codigo": "ING176580297155794609",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:49:31.557Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802975343,
+    "codigo": "ING1765802975343HW516",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:49:35.343Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802980116,
+    "codigo": "ING1765802980116D0CLH",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:49:40.116Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802980117,
+    "codigo": "ING1765802980116ERRIY",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:49:40.116Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802980118,
+    "codigo": "ING1765802980116RNTUM",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:49:40.116Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765802980123,
+    "codigo": "ING1765802980123ZLB9S",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:49:40.123Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803487277,
+    "codigo": "ING1765803487277UCWEK",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:58:07.277Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803499228,
+    "codigo": "ING17658034992280TQRI",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T12:58:19.228Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803499243,
+    "codigo": "ING1765803499243UF094",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T12:58:19.243Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803519716,
+    "codigo": "ING1765803519716S2E7V",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:58:39.716Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803519717,
+    "codigo": "ING1765803519716O48X2",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:58:39.716Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803519718,
+    "codigo": "ING1765803519716DS1UP",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:58:39.716Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803519720,
+    "codigo": "ING1765803519717M8NS7",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:58:39.717Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803519721,
+    "codigo": "ING1765803519717V1DZQ",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T12:58:39.717Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765803675204,
+    "codigo": "ING17658036752047DPFZ",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T13:01:15.204Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804064859,
+    "codigo": "ING1765804064859R73MC",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T13:07:44.859Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804244997,
+    "codigo": "ING1765804244997FM6Q8",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T13:10:44.997Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804466923,
+    "codigo": "ING1765804466923D69GV",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T13:14:26.923Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804466924,
+    "codigo": "ING1765804466923BBF7N",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T13:14:26.923Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804466925,
+    "codigo": "ING1765804466923BCCZL",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T13:14:26.923Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804466927,
+    "codigo": "ING1765804466924GU1KR",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T13:14:26.924Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765804466934,
+    "codigo": "ING1765804466934X0TCA",
+    "tipo": "passaporte",
+    "valor": 50,
+    "dataVenda": "2025-12-15T13:14:26.934Z",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765819022743,
+    "codigo": "ING1765819022743VRHT8",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T17:17:02.743Z",
+    "dataVendaDate": "2025-12-15",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765820548417,
+    "codigo": "ING1765820548417CTVNN",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-15T17:42:28.417Z",
+    "dataVendaDate": "2025-12-15",
+    "liberado": false,
+    "dataLiberacao": null
+  },
+  {
+    "id": 1765820556197,
+    "codigo": "ING1765820556197QULPT",
+    "tipo": "meio",
+    "valor": 10,
+    "dataVenda": "2025-12-15T17:42:36.197Z",
+    "dataVendaDate": "2025-12-15",
+    "liberado": false,
+    "dataLiberacao": null
+  }
+]

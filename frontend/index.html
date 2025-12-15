@@ -1,8 +1,9 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>" />
   <title>Menu de Categorias</title>
   <style>
     :root {
@@ -47,6 +48,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      position: relative;
+      flex-wrap: wrap;
     }
 
     h1 {
@@ -130,6 +133,16 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .admin-btn {
+      text-decoration: none;
+      z-index: 1;
+    }
+
+    .admin-btn button {
+      font-size: 13px;
+      padding: 8px 16px;
     }
 
     button {
@@ -484,6 +497,153 @@
       border-radius: 10px;
       color: var(--text);
       padding: 10px;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .field input.error {
+      border-color: var(--danger) !important;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    #tableInputError {
+      display: none;
+      color: var(--danger);
+      font-size: 13px;
+      margin-top: 6px;
+      font-weight: 600;
+      padding: 8px 12px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 8px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    #tableInputError.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Menu Administrador */
+    .admin-menu-container {
+      position: relative;
+    }
+
+    .admin-btn {
+      background: var(--accent);
+      border: 1px solid #16a34a;
+      color: #0b1220;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 140ms ease;
+      font-size: 14px;
+    }
+
+    .admin-btn:hover {
+      background: #16a34a;
+    }
+
+    .admin-menu-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: linear-gradient(145deg, #0b1220 0%, #0f1629 100%);
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      min-width: 280px;
+      padding: 8px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 1000;
+      animation: slideDown 200ms ease-out;
+      overflow: visible;
+    }
+    
+    .admin-menu-dropdown.active {
+      display: flex;
+      overflow: visible;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .admin-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 140ms ease;
+      border: 1px solid transparent;
+    }
+
+    .admin-menu-item:hover {
+      background: #0d1423;
+      border-color: #1f2937;
+    }
+
+    .admin-menu-item span {
+      font-size: 24px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-menu-item > div {
+      flex: 1;
+    }
+
+    .admin-menu-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px;
+      color: var(--text);
+    }
+
+    .admin-menu-desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Overlay para fechar o menu ao clicar fora */
+    .admin-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      display: none;
+    }
+
+    .admin-menu-overlay.active {
+      display: block;
     }
   </style>
 </head>
@@ -494,8 +654,55 @@
         <p class="breadcrumb" id="breadcrumb">Categorias</p>
         <h1 id="title">Selecione uma categoria</h1>
       </div>
-      <div class="toolbar">
+      <div class="toolbar" style="display: flex; gap: 10px; align-items: center;">
         <button id="backBtn" style="display:none">Voltar</button>
+        <div class="admin-menu-container">
+          <button id="adminMenuBtn" class="admin-btn">Administrador</button>
+          <div class="admin-menu-dropdown" id="adminMenuDropdown">
+            <a href="admin.html" class="admin-menu-item">
+              <span>💳</span>
+              <div>
+                <div class="admin-menu-title">Cartões</div>
+                <div class="admin-menu-desc">Gerenciar cartões de clientes</div>
+              </div>
+            </a>
+            <a href="admin-itens.html" class="admin-menu-item">
+              <span>📦</span>
+              <div>
+                <div class="admin-menu-title">Categorias e Itens</div>
+                <div class="admin-menu-desc">Gerenciar menu e produtos</div>
+              </div>
+            </a>
+            <a href="estoque.html" class="admin-menu-item">
+              <span>📊</span>
+              <div>
+                <div class="admin-menu-title">Estoque</div>
+                <div class="admin-menu-desc">Controle de inventário</div>
+              </div>
+            </a>
+            <a href="admin-eventos.html" class="admin-menu-item">
+              <span>🎉</span>
+              <div>
+                <div class="admin-menu-title">Eventos</div>
+                <div class="admin-menu-desc">Criar e gerenciar eventos</div>
+              </div>
+            </a>
+            <a href="controle.html" class="admin-menu-item">
+              <span>📊</span>
+              <div>
+                <div class="admin-menu-title">Controle e Relatórios</div>
+                <div class="admin-menu-desc">Logs e relatórios consolidados</div>
+              </div>
+            </a>
+            <a href="bilheteria.html" class="admin-menu-item">
+              <span>🎫</span>
+              <div>
+                <div class="admin-menu-title">Bilheteria</div>
+                <div class="admin-menu-desc">Vender ingressos e liberar entradas</div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -582,8 +789,9 @@
       <div class="modal-body" id="modalBody">
         <div id="modalItems"></div>
         <div class="field">
-          <label for="tableInput">Mesa / Identificação <span style="color: var(--danger);">*</span></label>
+          <label for="tableInput">Mesa / Identificação <span style="color: var(--danger); font-weight: 700; font-size: 16px;">*</span> <span style="color: var(--danger); font-size: 12px;">(Obrigatório)</span></label>
           <input id="tableInput" type="text" placeholder="Ex: Mesa 12" required />
+          <div id="tableInputError"></div>
         </div>
       </div>
       <footer class="modal-row" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
@@ -596,6 +804,50 @@
     </div>
   </div>
 
+  <div class="admin-menu-overlay" id="adminMenuOverlay"></div>
+  <script>
+    // Menu Administrador
+    const adminMenuBtn = document.getElementById('adminMenuBtn');
+    const adminMenuDropdown = document.getElementById('adminMenuDropdown');
+    const adminMenuOverlay = document.getElementById('adminMenuOverlay');
+
+    function toggleAdminMenu() {
+      const isActive = adminMenuDropdown.classList.contains('active');
+      adminMenuDropdown.classList.toggle('active');
+      adminMenuOverlay.classList.toggle('active');
+    }
+
+    function closeAdminMenu() {
+      adminMenuDropdown.classList.remove('active');
+      adminMenuOverlay.classList.remove('active');
+    }
+
+    if (adminMenuBtn) {
+      adminMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAdminMenu();
+      });
+    }
+
+    if (adminMenuOverlay) {
+      adminMenuOverlay.addEventListener('click', closeAdminMenu);
+    }
+
+    // Fechar menu ao clicar em qualquer item
+    document.querySelectorAll('.admin-menu-item').forEach(item => {
+      item.addEventListener('click', () => {
+        closeAdminMenu();
+      });
+    });
+
+    // Fechar menu ao pressionar ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && adminMenuDropdown.classList.contains('active')) {
+        closeAdminMenu();
+      }
+    });
+  </script>
+  <script src="./api.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

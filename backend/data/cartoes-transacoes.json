@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1765799916593,
+    "cartaoId": 1765538024494,
+    "cartaoNumero": "25001000",
+    "tipo": "compra",
+    "valor": 2420,
+    "saldoAnterior": 15000851,
+    "saldoAtual": 14998431,
+    "data": "2025-12-15T11:58:36.593Z",
+    "itens": [
+      {
+        "nome": "Anéis de Cebola",
+        "quantidade": 110,
+        "preco": 22,
+        "total": 2420
+      }
+    ],
+    "descricao": "Compra de 1 item(ns)"
+  },
+  {
+    "id": 1765799903086,
+    "cartaoId": 1765538024494,
+    "cartaoNumero": "25001000",
+    "tipo": "recarga",
+    "valor": 15000000,
+    "saldoAnterior": 851,
+    "saldoAtual": 15000851,
+    "data": "2025-12-15T11:58:23.086Z",
+    "descricao": "Recarga de saldo"
+  },
+  {
+    "id": 1765799318827,
+    "cartaoId": 1765538024494,
+    "cartaoNumero": "25001000",
+    "tipo": "estorno",
+    "valor": 27,
+    "saldoAnterior": 824,
+    "saldoAtual": 851,
+    "data": "2025-12-15T11:48:38.827Z",
+    "descricao": "Estorno de 1 transação(ões)",
+    "transacoesEstornadas": [
+      1765799284969
+    ]
+  },
+  {
+    "id": 1765799284969,
+    "cartaoId": 1765538024494,
+    "cartaoNumero": "25001000",
+    "tipo": "compra",
+    "valor": 27,
+    "saldoAnterior": 851,
+    "saldoAtual": 824,
+    "data": "2025-12-15T11:48:04.969Z",
+    "itens": [
+      {
+        "nome": "Coca-Cola Lata",
+        "quantidade": 3,
+        "preco": 9,
+        "total": 27
+      }
+    ],
+    "descricao": "Compra de 1 item(ns)",
+    "estornado": true,
+    "dataEstorno": "2025-12-15T11:48:38.827Z"
+  },
+  {
+    "id": 1765797118377,
+    "cartaoId": 1765538024494,
+    "cartaoNumero": "25001000",
+    "tipo": "estorno",
+    "valor": 63,
+    "saldoAnterior": 788,
+    "saldoAtual": 851,
+    "data": "2025-12-15T11:11:58.377Z",
+    "descricao": "Estorno de 1 transação(ões)",
+    "transacoesEstornadas": [
+      1765796597557
+    ]
+  },
+  {
+    "id": 1765796597557,
+    "cartaoId": 1765538024494,
+    "cartaoNumero": "25001000",
+    "tipo": "compra",
+    "valor": 63,
+    "saldoAnterior": 851,
+    "saldoAtual": 788,
+    "data": "2025-12-15T11:03:17.557Z",
+    "itens": [
+      {
+        "nome": "Coca-Cola Lata",
+        "quantidade": 7,
+        "preco": 9,
+        "total": 63
+      }
+    ],
+    "descricao": "Compra de 1 item(ns)",
+    "estornado": true,
+    "dataEstorno": "2025-12-15T11:11:58.377Z"
+  }
+]

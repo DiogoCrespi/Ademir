@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -147,7 +147,10 @@
       background: #0d1423;
       border: 1px solid #1f2937;
       border-radius: 16px;
-      padding: 16px;
+      padding: 20px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
       transition: transform 140ms ease, border-color 140ms ease;
     }
 
@@ -203,8 +206,10 @@
 
     .card-actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: auto;
+      padding-top: 12px;
     }
 
     .btn-small {
@@ -384,12 +389,66 @@
     .relatorio-table tr:hover {
       background: #0a0f1a;
     }
+
+    /* Estilos para o extrato */
+    #extratoContent {
+      scrollbar-width: thin;
+      scrollbar-color: #1f2937 #0a0f1a;
+    }
+
+    #extratoContent::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #extratoContent::-webkit-scrollbar-track {
+      background: #0a0f1a;
+      border-radius: 8px;
+    }
+
+    #extratoContent::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 8px;
+    }
+
+    #extratoContent::-webkit-scrollbar-thumb:hover {
+      background: #2c3749;
+    }
+
+    input[type="date"],
+    input[type="time"] {
+      width: 100%;
+      padding: 10px;
+      background: #0d1423;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    input[type="date"]:focus,
+    input[type="time"]:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Administração de Cartões</h1>
+      <div>
+        <h1>Administração de Cartões</h1>
+        <div style="display: flex; gap: 12px; margin-top: 12px;">
+          <a href="admin-itens.html" style="color: var(--accent); text-decoration: none; font-size: 14px; padding: 6px 12px; border: 1px solid var(--accent); border-radius: 8px; transition: all 140ms ease;">
+            Gerenciar Categorias e Itens
+          </a>
+          <a href="estoque.html" style="color: var(--info); text-decoration: none; font-size: 14px; padding: 6px 12px; border: 1px solid var(--info); border-radius: 8px; transition: all 140ms ease;">
+            Controle de Estoque
+          </a>
+          <a href="index.html" style="color: var(--text); text-decoration: none; font-size: 14px; padding: 6px 12px; border: 1px solid #1f2937; border-radius: 8px; transition: all 140ms ease;">
+            Voltar ao Menu
+          </a>
+        </div>
+      </div>
       <p class="subtitle">Gerencie cartões, saldos e movimentações</p>
     </header>
 
@@ -487,8 +546,83 @@
     </div>
   </div>
 
+  <!-- Modal Extrato -->
+  <div class="modal-backdrop" id="modalExtrato">
+    <div class="modal" style="width: min(900px, 90vw); max-height: 90vh;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalExtratoTitle">Extrato do Cartão</h2>
+        <button class="modal-close" id="modalExtratoClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom: 20px; padding: 16px; background: #0a0f1a; border-radius: 12px; border: 1px solid #1f2937;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
+            <div class="field" style="margin: 0;">
+              <label for="extratoDataInicio">Data Início</label>
+              <input type="date" id="extratoDataInicio" />
+            </div>
+            <div class="field" style="margin: 0;">
+              <label for="extratoHoraInicio">Hora Início</label>
+              <input type="time" id="extratoHoraInicio" />
+            </div>
+            <div class="field" style="margin: 0;">
+              <label for="extratoDataFim">Data Fim</label>
+              <input type="date" id="extratoDataFim" />
+            </div>
+            <div class="field" style="margin: 0;">
+              <label for="extratoHoraFim">Hora Fim</label>
+              <input type="time" id="extratoHoraFim" />
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="accent" onclick="filtrarExtrato()" style="flex: 1;">Filtrar</button>
+            <button onclick="limparFiltrosExtrato()">Limpar Filtros</button>
+          </div>
+        </div>
+        <div id="extratoContent" style="max-height: 400px; overflow-y: auto;">
+          <div class="empty-state">Carregando extrato...</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="modalExtratoFechar">Fechar</button>
+        <button class="accent" onclick="window.print()">Imprimir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Estorno -->
+  <div class="modal-backdrop" id="modalEstorno">
+    <div class="modal" style="width: min(900px, 90vw); max-height: 90vh;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalEstornoTitle">Estornar Transações</h2>
+        <button class="modal-close" id="modalEstornoClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom: 20px; padding: 16px; background: #0a0f1a; border-radius: 12px; border: 1px solid #1f2937;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div>
+              <div style="font-size: 14px; color: var(--muted);">Selecione as transações para estornar</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Total selecionado: <span id="estornoTotalSelecionado" style="color: var(--accent); font-weight: 600;">R$ 0,00</span></div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-small" onclick="selecionarTodasEstorno()">Selecionar Todas</button>
+              <button class="btn-small" onclick="desmarcarTodasEstorno()">Desmarcar Todas</button>
+            </div>
+          </div>
+        </div>
+        <div id="estornoContent" style="max-height: 400px; overflow-y: auto;">
+          <div class="empty-state">Carregando transações...</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="modalEstornoFechar">Cancelar</button>
+        <button class="accent" id="btnConfirmarEstorno" onclick="confirmarEstorno()" style="background: #dc2626; border-color: #dc2626;">Confirmar Estorno</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="./api.js"></script>
   <script src="./admin.js"></script>
 </body>
 </html>
