@@ -2,20 +2,25 @@ const { Evento } = require('../models')
 
 class EventoService {
   async getAllEventos() {
-    const eventos = await Evento.findAll({
-      order: [['data_criacao', 'DESC']]
-    })
+    try {
+      const eventos = await Evento.findAll({
+        order: [['data_criacao', 'DESC']]
+      })
 
-    return eventos.map(e => ({
-      id: e.id,
-      nome: e.nome,
-      data: e.data,
-      descricao: e.descricao,
-      finalizado: e.finalizado,
-      dataCriacao: e.data_criacao,
-      dataFinalizacao: e.data_finalizacao,
-      itens: e.itens
-    }))
+      return eventos.map(e => ({
+        id: e.id,
+        nome: e.nome,
+        data: e.data,
+        descricao: e.descricao,
+        finalizado: e.finalizado,
+        dataCriacao: e.data_criacao,
+        dataFinalizacao: e.data_finalizacao,
+        itens: e.itens
+      }))
+    } catch (error) {
+      console.error('Erro ao buscar eventos do banco de dados:', error.message)
+      return []
+    }
   }
 
   async saveEventos(eventosData) {

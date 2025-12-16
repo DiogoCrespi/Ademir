@@ -3,9 +3,14 @@ const { Op } = require('sequelize')
 
 class CartaoService {
   async getAllCartoes() {
-    return await Cartao.findAll({
-      order: [['created_at', 'DESC']]
-    })
+    try {
+      return await Cartao.findAll({
+        order: [['created_at', 'DESC']]
+      })
+    } catch (error) {
+      console.error('Erro ao buscar cartões do banco de dados:', error.message)
+      return []
+    }
   }
 
   async saveCartoes(cartoesData) {

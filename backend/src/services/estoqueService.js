@@ -3,36 +3,41 @@ const { Op } = require('sequelize')
 
 class EstoqueService {
   async getEstoque() {
-    const produtos = await ProdutoEstoque.findAll({
-      order: [['created_at', 'ASC']]
-    })
+    try {
+      const produtos = await ProdutoEstoque.findAll({
+        order: [['created_at', 'ASC']]
+      })
 
-    const geladeiras = produtos.filter(p => p.local === 'geladeiras')
-    const cameraFria = produtos.filter(p => p.local === 'cameraFria')
+      const geladeiras = produtos.filter(p => p.local === 'geladeiras')
+      const cameraFria = produtos.filter(p => p.local === 'cameraFria')
 
-    return {
-      geladeiras: geladeiras.map(p => ({
-        id: p.id,
-        nome: p.nome,
-        categoria: p.categoria,
-        quantidade: parseInt(p.quantidade),
-        valorUnitario: parseFloat(p.valor_unitario),
-        estoqueMinimo: parseInt(p.estoque_minimo),
-        observacao: p.observacao,
-        createdAt: p.created_at,
-        updatedAt: p.updated_at
-      })),
-      cameraFria: cameraFria.map(p => ({
-        id: p.id,
-        nome: p.nome,
-        categoria: p.categoria,
-        quantidade: parseInt(p.quantidade),
-        valorUnitario: parseFloat(p.valor_unitario),
-        estoqueMinimo: parseInt(p.estoque_minimo),
-        observacao: p.observacao,
-        createdAt: p.created_at,
-        updatedAt: p.updated_at
-      }))
+      return {
+        geladeiras: geladeiras.map(p => ({
+          id: p.id,
+          nome: p.nome,
+          categoria: p.categoria,
+          quantidade: parseInt(p.quantidade),
+          valorUnitario: parseFloat(p.valor_unitario),
+          estoqueMinimo: parseInt(p.estoque_minimo),
+          observacao: p.observacao,
+          createdAt: p.created_at,
+          updatedAt: p.updated_at
+        })),
+        cameraFria: cameraFria.map(p => ({
+          id: p.id,
+          nome: p.nome,
+          categoria: p.categoria,
+          quantidade: parseInt(p.quantidade),
+          valorUnitario: parseFloat(p.valor_unitario),
+          estoqueMinimo: parseInt(p.estoque_minimo),
+          observacao: p.observacao,
+          createdAt: p.created_at,
+          updatedAt: p.updated_at
+        }))
+      }
+    } catch (error) {
+      console.error('Erro ao buscar estoque do banco de dados:', error.message)
+      return { geladeiras: [], cameraFria: [] }
     }
   }
 
