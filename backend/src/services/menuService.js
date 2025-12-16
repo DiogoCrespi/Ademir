@@ -31,7 +31,8 @@ class MenuService {
           : []
       }))
     } catch (error) {
-      console.error('Erro ao buscar menu do banco de dados:', error.message)
+      console.error('Erro ao buscar menu do banco de dados:', error)
+      console.error('Stack trace:', error.stack)
       // Retornar array vazio se o banco não estiver disponível
       return []
     }

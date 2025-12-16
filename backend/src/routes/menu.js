@@ -32,10 +32,12 @@ const menuService = require('../services/menuService')
 router.get('/', async (req, res) => {
   try {
     const menu = await menuService.getMenu()
-    res.json(menu)
+    // Sempre retorna um array (menuService já trata erros e retorna [])
+    res.json(Array.isArray(menu) ? menu : [])
   } catch (error) {
-    console.error('Erro ao ler menu:', error)
-    res.status(500).json({ error: 'Erro ao carregar menu' })
+    console.error('Erro ao ler menu na rota:', error)
+    // Se mesmo assim der erro, retornar array vazio
+    res.json([])
   }
 })
 
