@@ -98,7 +98,7 @@ Acesse `http://localhost:3100/api-docs` para ver a documentação completa da AP
 ## Notas
 
 - Migrations rodam automaticamente no start do container backend (`npm run migrate && node src/server.js`).
-- Dados migrados do JSON para PostgreSQL (menu, cartões, transações, estoque, movimentações, eventos, ingressos).
+- Dados migrados do JSON para PostgreSQL (menu, cartões, transações, estoque, movimentações, eventos, ingressos). Pastas/arquivos JSON foram removidos.
 - Swagger configurado para documentação automática (`/api-docs`).
-- Frontend consome a API do backend; dados mockados só como fallback em caso de falha na API.
+- Frontend consome a API do backend; não há persistência em JSON no backend (mocks removidos).
 

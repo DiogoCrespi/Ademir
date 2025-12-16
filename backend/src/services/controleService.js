@@ -1,6 +1,4 @@
 const { Cartao, Transacao, Evento, ProdutoEstoque, Ingresso, MovimentacaoEstoque } = require('../models')
-const { Op } = require('sequelize')
-const { Sequelize } = require('sequelize')
 
 class ControleService {
   async getDashboard() {

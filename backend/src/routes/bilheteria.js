@@ -83,7 +83,7 @@ router.post('/config', async (req, res) => {
  */
 router.post('/processar-pagamento', async (req, res) => {
   try {
-    const { valor, tipos, formaPagamento } = req.body
+    const { valor, formaPagamento } = req.body
 
     if (!valor || valor <= 0) {
       return res.status(400).json({ success: false, message: 'Valor inválido' })

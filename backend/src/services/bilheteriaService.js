@@ -1,5 +1,4 @@
 const { Ingresso, ConfigBilheteria } = require('../models')
-const { Op } = require('sequelize')
 
 class BilheteriaService {
   async getConfig() {

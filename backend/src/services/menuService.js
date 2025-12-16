@@ -39,7 +39,7 @@ class MenuService {
       // Por enquanto vamos fazer upsert
 
       for (const categoriaData of menuData) {
-        const [categoria] = await Categoria.upsert({
+        await Categoria.upsert({
           id: categoriaData.id,
           titulo: categoriaData.titulo,
           img: categoriaData.img || null,

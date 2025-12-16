@@ -18,7 +18,7 @@
  * @param {string} folder - Pasta de destino (ex: 'categorias', 'produtos')
  * @returns {Promise<{url: string, path: string}>}
  */
-async function uploadImage(fileBuffer, filename, folder = 'uploads') {
+async function uploadImage(fileBuffer, filename, _folder = 'uploads') {
   // TODO: Implementar upload
   throw new Error('Upload de imagens não implementado ainda')
 }
@@ -28,7 +28,7 @@ async function uploadImage(fileBuffer, filename, folder = 'uploads') {
  * @param {string} imagePath - Caminho da imagem
  * @returns {Promise<boolean>}
  */
-async function deleteImage(imagePath) {
+async function deleteImage(_imagePath) {
   // TODO: Implementar remoção
   throw new Error('Remoção de imagens não implementado ainda')
 }
