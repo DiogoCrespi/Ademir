@@ -9,8 +9,32 @@ class CartaoService {
       })
     } catch (error) {
       console.error('Erro ao buscar cartões do banco de dados:', error.message)
-      return []
+      return this.getMockCartoes()
     }
+  }
+
+  getMockCartoes() {
+    return [
+      {
+        id: 1,
+        numero: '1234567890123456',
+        nome: 'João Silva',
+        documento: '123.456.789-00',
+        saldo: 50.00,
+        ativo: true,
+        created_at: new Date()
+      },
+      {
+        id: 2,
+        numero: '9876543210987654',
+        nome: 'Maria Santos',
+        documento: '987.654.321-00',
+        saldo: 100.00,
+        ativo: true,
+        created_at: new Date()
+      }
+    ]
+  }
   }
 
   async saveCartoes(cartoesData) {

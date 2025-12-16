@@ -19,8 +19,38 @@ class EventoService {
       }))
     } catch (error) {
       console.error('Erro ao buscar eventos do banco de dados:', error.message)
-      return []
+      return this.getMockEventos()
     }
+  }
+
+  getMockEventos() {
+    const hoje = new Date()
+    const amanha = new Date(hoje)
+    amanha.setDate(amanha.getDate() + 1)
+    
+    return [
+      {
+        id: 1,
+        nome: 'Festival de Verão 2025',
+        data: amanha.toISOString().split('T')[0],
+        descricao: 'Grande evento de verão com música ao vivo',
+        finalizado: false,
+        dataCriacao: hoje.toISOString(),
+        dataFinalizacao: null,
+        itens: []
+      },
+      {
+        id: 2,
+        nome: 'Workshop de Culinária',
+        data: hoje.toISOString().split('T')[0],
+        descricao: 'Aprenda receitas deliciosas',
+        finalizado: false,
+        dataCriacao: hoje.toISOString(),
+        dataFinalizacao: null,
+        itens: []
+      }
+    ]
+  }
   }
 
   async saveEventos(eventosData) {

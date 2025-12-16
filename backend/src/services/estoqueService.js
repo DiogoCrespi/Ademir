@@ -37,8 +37,74 @@ class EstoqueService {
       }
     } catch (error) {
       console.error('Erro ao buscar estoque do banco de dados:', error.message)
-      return { geladeiras: [], cameraFria: [] }
+      return this.getMockEstoque()
     }
+  }
+
+  getMockEstoque() {
+    const hoje = new Date()
+    return {
+      geladeiras: [
+        {
+          id: 1,
+          nome: 'Coca-Cola 350ml',
+          categoria: 'Bebidas',
+          quantidade: 50,
+          valorUnitario: 3.50,
+          estoqueMinimo: 10,
+          observacao: 'Refrigerante gelado',
+          createdAt: hoje,
+          updatedAt: hoje
+        },
+        {
+          id: 2,
+          nome: 'Água Mineral',
+          categoria: 'Bebidas',
+          quantidade: 30,
+          valorUnitario: 2.00,
+          estoqueMinimo: 15,
+          observacao: 'Água sem gás',
+          createdAt: hoje,
+          updatedAt: hoje
+        },
+        {
+          id: 3,
+          nome: 'Suco de Laranja',
+          categoria: 'Bebidas',
+          quantidade: 20,
+          valorUnitario: 4.50,
+          estoqueMinimo: 10,
+          observacao: 'Suco natural',
+          createdAt: hoje,
+          updatedAt: hoje
+        }
+      ],
+      cameraFria: [
+        {
+          id: 4,
+          nome: 'Hambúrguer',
+          categoria: 'Lanches',
+          quantidade: 25,
+          valorUnitario: 12.00,
+          estoqueMinimo: 10,
+          observacao: 'Hambúrguer artesanal',
+          createdAt: hoje,
+          updatedAt: hoje
+        },
+        {
+          id: 5,
+          nome: 'Batata Frita',
+          categoria: 'Acompanhamentos',
+          quantidade: 40,
+          valorUnitario: 6.00,
+          estoqueMinimo: 20,
+          observacao: 'Porção média',
+          createdAt: hoje,
+          updatedAt: hoje
+        }
+      ]
+    }
+  }
   }
 
   async saveEstoque(estoqueData) {

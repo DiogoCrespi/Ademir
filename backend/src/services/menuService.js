@@ -33,9 +33,46 @@ class MenuService {
     } catch (error) {
       console.error('Erro ao buscar menu do banco de dados:', error)
       console.error('Stack trace:', error.stack)
-      // Retornar array vazio se o banco não estiver disponível
-      return []
+      // Retornar dados mockados se o banco não estiver disponível
+      return this.getMockMenu()
     }
+  }
+
+  getMockMenu() {
+    return [
+      {
+        id: 'cat1',
+        titulo: 'Bebidas',
+        img: null,
+        ativo: true,
+        itens: [
+          { id: 1, nome: 'Coca-Cola 350ml', preco: 5.00, desc: 'Refrigerante gelado', ativo: true },
+          { id: 2, nome: 'Água Mineral', preco: 3.00, desc: 'Água sem gás', ativo: true },
+          { id: 3, nome: 'Suco de Laranja', preco: 6.00, desc: 'Suco natural', ativo: true }
+        ]
+      },
+      {
+        id: 'cat2',
+        titulo: 'Lanches',
+        img: null,
+        ativo: true,
+        itens: [
+          { id: 4, nome: 'Hambúrguer', preco: 15.00, desc: 'Hambúrguer artesanal', ativo: true },
+          { id: 5, nome: 'Batata Frita', preco: 8.00, desc: 'Porção média', ativo: true },
+          { id: 6, nome: 'Pastel', preco: 7.00, desc: 'Pastel frito', ativo: true }
+        ]
+      },
+      {
+        id: 'cat3',
+        titulo: 'Doces',
+        img: null,
+        ativo: true,
+        itens: [
+          { id: 7, nome: 'Brigadeiro', preco: 2.50, desc: 'Brigadeiro gourmet', ativo: true },
+          { id: 8, nome: 'Brownie', preco: 6.00, desc: 'Brownie com chocolate', ativo: true }
+        ]
+      }
+    ]
   }
 
   async saveMenu(menuData) {
