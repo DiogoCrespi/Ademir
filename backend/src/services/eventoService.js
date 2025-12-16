@@ -51,7 +51,6 @@ class EventoService {
       }
     ]
   }
-  }
 
   async saveEventos(eventosData) {
     const transaction = await Evento.sequelize.transaction()

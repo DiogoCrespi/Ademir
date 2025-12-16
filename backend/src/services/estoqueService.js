@@ -105,7 +105,6 @@ class EstoqueService {
       ]
     }
   }
-  }
 
   async saveEstoque(estoqueData) {
     const transaction = await ProdutoEstoque.sequelize.transaction()
