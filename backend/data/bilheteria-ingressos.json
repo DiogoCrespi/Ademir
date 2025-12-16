@@ -6,7 +6,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:38:07.713Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802289561,
@@ -15,7 +16,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:38:09.561Z",
     "liberado": true,
-    "dataLiberacao": "2025-12-15T12:38:32.573Z"
+    "dataLiberacao": "2025-12-15T12:38:32.573Z",
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802294812,
@@ -24,7 +26,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:38:14.812Z",
     "liberado": true,
-    "dataLiberacao": "2025-12-15T12:38:23.775Z"
+    "dataLiberacao": "2025-12-15T12:38:23.775Z",
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802297646,
@@ -33,7 +36,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:38:17.646Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802407992,
@@ -42,7 +46,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:40:07.992Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802667482,
@@ -51,7 +56,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:44:27.482Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802670357,
@@ -60,7 +66,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:44:30.357Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802673669,
@@ -69,7 +76,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:44:33.669Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802767000,
@@ -78,7 +86,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:46:07.000Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802768149,
@@ -87,7 +96,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:46:08.149Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802971550,
@@ -96,7 +106,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:49:31.550Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802971557,
@@ -105,7 +116,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:49:31.557Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802975343,
@@ -114,7 +126,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:49:35.343Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802980116,
@@ -123,7 +136,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:49:40.116Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802980117,
@@ -132,7 +146,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:49:40.116Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802980118,
@@ -141,7 +156,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:49:40.116Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765802980123,
@@ -150,7 +166,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:49:40.123Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803487277,
@@ -159,7 +176,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:58:07.277Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803499228,
@@ -168,7 +186,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T12:58:19.228Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803499243,
@@ -177,7 +196,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T12:58:19.243Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803519716,
@@ -186,7 +206,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:58:39.716Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803519717,
@@ -195,7 +216,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:58:39.716Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803519718,
@@ -204,7 +226,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:58:39.716Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803519720,
@@ -213,7 +236,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:58:39.717Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803519721,
@@ -222,7 +246,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T12:58:39.717Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765803675204,
@@ -231,7 +256,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T13:01:15.204Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804064859,
@@ -240,7 +266,8 @@
     "valor": 20,
     "dataVenda": "2025-12-15T13:07:44.859Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804244997,
@@ -249,7 +276,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T13:10:44.997Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804466923,
@@ -258,7 +286,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T13:14:26.923Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804466924,
@@ -267,7 +296,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T13:14:26.923Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804466925,
@@ -276,7 +306,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T13:14:26.923Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804466927,
@@ -285,7 +316,8 @@
     "valor": 10,
     "dataVenda": "2025-12-15T13:14:26.924Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765804466934,
@@ -294,7 +326,8 @@
     "valor": 50,
     "dataVenda": "2025-12-15T13:14:26.934Z",
     "liberado": false,
-    "dataLiberacao": null
+    "dataLiberacao": null,
+    "dataVendaDate": "2025-12-15"
   },
   {
     "id": 1765819022743,
