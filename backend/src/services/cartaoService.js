@@ -35,7 +35,6 @@ class CartaoService {
       }
     ]
   }
-  }
 
   async saveCartoes(cartoesData) {
     const transaction = await Cartao.sequelize.transaction()
