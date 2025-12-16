@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const path = require('path')
+const fs = require('fs')
 const { testConnection } = require('./config/database')
 
 // Importar rotas
@@ -32,6 +34,33 @@ app.use('/api-docs', docsRoutes)
 // Rota de health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
+})
+
+// Servir arquivos estáticos do frontend
+// Primeiro tenta ./frontend (produção/Azure), depois ../frontend (desenvolvimento local)
+const frontendPath = path.join(__dirname, '../frontend')
+const frontendPathDev = path.join(__dirname, '../../frontend')
+
+let actualFrontendPath = frontendPath
+if (!fs.existsSync(frontendPath) && fs.existsSync(frontendPathDev)) {
+  actualFrontendPath = frontendPathDev
+}
+
+if (fs.existsSync(actualFrontendPath)) {
+  app.use(express.static(actualFrontendPath))
+}
+
+// Rota catch-all para SPA - servir index.html para todas as rotas que não sejam API
+app.get('*', (req, res, next) => {
+  // Se for uma rota de API, não servir o frontend
+  if (req.path.startsWith('/api') || req.path.startsWith('/api-docs')) {
+    return next()
+  }
+  if (fs.existsSync(actualFrontendPath)) {
+    res.sendFile(path.join(actualFrontendPath, 'index.html'))
+  } else {
+    next()
+  }
 })
 
 // Iniciar servidor

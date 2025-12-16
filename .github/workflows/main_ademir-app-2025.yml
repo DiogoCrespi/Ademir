@@ -29,6 +29,10 @@ jobs:
           npm install --legacy-peer-deps
           npm run build --if-present || true
 
+      - name: Copy frontend to backend directory
+        run: |
+          cp -r frontend backend/frontend
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
