@@ -23,8 +23,22 @@ const BilheteriaPage: React.FC = () => {
     try {
       const configData = await api.getTicketConfig();
       const soldData = await api.getTickets();
-      setConfig(configData);
-      setTicketsSold(soldData);
+
+      // Normaliza para as chaves esperadas pelo front (normal/meio/passaporte)
+      const normalizedConfig: TicketConfig = {
+        normal: parseFloat(configData?.precoNormal ?? configData?.normal ?? 0) || 0,
+        meio: parseFloat(configData?.precoMeio ?? configData?.meio ?? 0) || 0,
+        passaporte: parseFloat(configData?.precoPassaporte ?? configData?.passaporte ?? 0) || 0,
+      };
+
+      setConfig(normalizedConfig);
+      setTicketsSold(
+        (soldData || []).map(t => ({
+          ...t,
+          valor: typeof t.valor === 'number' ? t.valor : parseFloat(t.valor ?? 0) || 0,
+          formaPagamento: t.formaPagamento || t.forma_pagamento || '',
+        }))
+      );
     } catch (err) {
       console.error(err);
     } finally {

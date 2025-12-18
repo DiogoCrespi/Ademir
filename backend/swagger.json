@@ -1,0 +1,181 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Ademir API",
+    "description": "API usada pelo novo frontend (React/Vite). Endpoints sob o prefixo /api.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "http://localhost:3101/api" }
+  ],
+  "tags": [
+    { "name": "menu" },
+    { "name": "cartoes" },
+    { "name": "estoque" },
+    { "name": "eventos" },
+    { "name": "bilheteria" },
+    { "name": "controle" }
+  ],
+  "paths": {
+    "/menu": {
+      "get": {
+        "tags": ["menu"],
+        "summary": "Obter menu",
+        "responses": { "200": { "description": "Lista de categorias/itens" } }
+      },
+      "post": {
+        "tags": ["menu"],
+        "summary": "Salvar menu",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object" } } } },
+        "responses": { "200": { "description": "Menu salvo" } }
+      }
+    },
+    "/cartoes": {
+      "get": { "tags": ["cartoes"], "summary": "Listar cartões", "responses": { "200": { "description": "Lista" } } },
+      "post": {
+        "tags": ["cartoes"],
+        "summary": "Salvar cartões (array completo)",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "array" } } } },
+        "responses": { "200": { "description": "Cartões salvos" } }
+      }
+    },
+    "/cartoes/{numero}": {
+      "get": {
+        "tags": ["cartoes"],
+        "summary": "Buscar cartão por número",
+        "parameters": [{ "in": "path", "name": "numero", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Cartão" }, "404": { "description": "Não encontrado" } }
+      }
+    },
+    "/cartoes/{id}/debitar": {
+      "post": {
+        "tags": ["cartoes"],
+        "summary": "Debitar saldo",
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "valor": { "type": "number" }, "itens": { "type": "array" } } } } } },
+        "responses": { "200": { "description": "Saldo debitado" }, "400": { "description": "Saldo insuficiente" }, "404": { "description": "Cartão não encontrado" } }
+      }
+    },
+    "/cartoes/{id}/recarregar": {
+      "post": {
+        "tags": ["cartoes"],
+        "summary": "Recarregar saldo",
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "valor": { "type": "number" }, "descricao": { "type": "string" } } } } } },
+        "responses": { "200": { "description": "Saldo recarregado" }, "404": { "description": "Cartão não encontrado" } }
+      }
+    },
+    "/cartoes/{id}/transacoes": {
+      "get": {
+        "tags": ["cartoes"],
+        "summary": "Listar transações de um cartão",
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Lista de transações" } }
+      }
+    },
+    "/cartoes/{id}/estornar": {
+      "post": {
+        "tags": ["cartoes"],
+        "summary": "Estornar transações",
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "transacoesIds": { "type": "array", "items": { "type": "integer" } } } } } } },
+        "responses": { "200": { "description": "Estorno realizado" }, "400": { "description": "Nenhuma transação válida" }, "404": { "description": "Cartão não encontrado" } }
+      }
+    },
+    "/estoque": {
+      "get": { "tags": ["estoque"], "summary": "Obter estoque", "responses": { "200": { "description": "Estoque" } } },
+      "post": {
+        "tags": ["estoque"],
+        "summary": "Salvar estoque",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object" } } } },
+        "responses": { "200": { "description": "Estoque salvo" } }
+      }
+    },
+    "/estoque/historico": {
+      "get": { "tags": ["estoque"], "summary": "Histórico de estoque", "responses": { "200": { "description": "Histórico" } } },
+      "post": {
+        "tags": ["estoque"],
+        "summary": "Salvar histórico",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "array" } } } },
+        "responses": { "200": { "description": "Histórico salvo" } }
+      }
+    },
+    "/estoque/verificar/{produtoNome}": {
+      "get": {
+        "tags": ["estoque"],
+        "summary": "Verificar disponibilidade",
+        "parameters": [{ "in": "path", "name": "produtoNome", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Disponibilidade" } }
+      }
+    },
+    "/estoque/reduzir": {
+      "post": {
+        "tags": ["estoque"],
+        "summary": "Dar saída em estoque",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "produtoNome": { "type": "string" }, "quantidade": { "type": "number" } } } } } },
+        "responses": { "200": { "description": "Saída registrada" }, "400": { "description": "Estoque insuficiente" }, "404": { "description": "Produto não encontrado" } }
+      }
+    },
+    "/eventos": {
+      "get": { "tags": ["eventos"], "summary": "Listar eventos", "responses": { "200": { "description": "Eventos" } } },
+      "post": {
+        "tags": ["eventos"],
+        "summary": "Salvar eventos (array completo)",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "array" } } } },
+        "responses": { "200": { "description": "Eventos salvos" } }
+      }
+    },
+    "/bilheteria/config": {
+      "get": { "tags": ["bilheteria"], "summary": "Obter config da bilheteria", "responses": { "200": { "description": "Config" } } },
+      "post": {
+        "tags": ["bilheteria"],
+        "summary": "Salvar config",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object" } } } },
+        "responses": { "200": { "description": "Config salva" } }
+      }
+    },
+    "/bilheteria/processar-pagamento": {
+      "post": {
+        "tags": ["bilheteria"],
+        "summary": "Processar pagamento",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object" } } } },
+        "responses": { "200": { "description": "Resultado do pagamento" } }
+      }
+    },
+    "/bilheteria/vender": {
+      "post": {
+        "tags": ["bilheteria"],
+        "summary": "Vender ingressos",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "tipo": { "type": "string" }, "quantidade": { "type": "integer" } } } } } },
+        "responses": { "200": { "description": "Ingressos gerados" } }
+      }
+    },
+    "/bilheteria/ingressos": {
+      "get": { "tags": ["bilheteria"], "summary": "Listar ingressos", "responses": { "200": { "description": "Ingressos" } } }
+    },
+    "/bilheteria/liberar": {
+      "post": {
+        "tags": ["bilheteria"],
+        "summary": "Liberar ingresso",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "codigo": { "type": "string" } } } } } },
+        "responses": { "200": { "description": "Ingresso liberado" }, "404": { "description": "Não encontrado" } }
+      }
+    },
+    "/controle/dashboard": {
+      "get": { "tags": ["controle"], "summary": "Dashboard consolidado", "responses": { "200": { "description": "Resumo" } } }
+    },
+    "/controle/logs": {
+      "get": { "tags": ["controle"], "summary": "Logs consolidados", "responses": { "200": { "description": "Lista de logs" } } }
+    },
+    "/controle/relatorio/{tipo}": {
+      "get": {
+        "tags": ["controle"],
+        "summary": "Relatórios (cartoes, vendas, estoque, eventos)",
+        "parameters": [{ "in": "path", "name": "tipo", "required": true, "schema": { "type": "string", "enum": ["cartoes", "vendas", "estoque", "eventos"] } }],
+        "responses": { "200": { "description": "Relatório" }, "400": { "description": "Tipo inválido" } }
+      }
+    }
+  }
+}
+
+

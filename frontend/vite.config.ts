@@ -6,8 +6,16 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       server: {
-        port: 3000,
+        // Porta padrão do Vite
+        port: 5173,
         host: '0.0.0.0',
+        // Proxy para encaminhar chamadas /api do frontend (porta 5173) para o backend (porta 3101)
+        proxy: {
+          '/api': {
+            target: 'http://localhost:3101',
+            changeOrigin: true,
+          },
+        },
       },
       plugins: [react()],
       define: {

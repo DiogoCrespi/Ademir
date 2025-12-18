@@ -43,8 +43,41 @@ const ControlePage: React.FC = () => {
     try {
       const dashboardData = await api.getDashboard();
       const logsData = await api.getLogs();
-      setStats(dashboardData);
-      setLogs(logsData);
+
+      // Normaliza números para evitar toFixed em undefined
+      const normalized = {
+        cartoes: {
+          total: dashboardData?.cartoes?.total ?? 0,
+          ativos: dashboardData?.cartoes?.ativos ?? 0,
+          saldoTotal: Number(dashboardData?.saldo?.total ?? dashboardData?.cartoes?.saldoTotal ?? 0) || 0,
+        },
+        vendas: {
+          hoje: Number(dashboardData?.vendas?.hoje ?? 0) || 0,
+          mes: Number(dashboardData?.vendas?.mes ?? 0) || 0,
+        },
+        transacoes: {
+          hoje: dashboardData?.transacoes?.hoje ?? 0,
+          mes: dashboardData?.transacoes?.mes ?? 0,
+        },
+        estoque: {
+          baixo: dashboardData?.estoque?.baixo ?? dashboardData?.estoque?.baixoEstoque ?? 0,
+          total: dashboardData?.estoque?.itens ?? dashboardData?.estoque?.totalItens ?? 0,
+        },
+        ingressos: {
+          total: dashboardData?.ingressos?.total ?? 0,
+          hoje: {
+            quantidade: dashboardData?.ingressos?.hoje?.quantidade ?? 0,
+            valor: Number(dashboardData?.ingressos?.hoje?.valor ?? 0) || 0,
+          },
+          mes: {
+            quantidade: dashboardData?.ingressos?.mes?.quantidade ?? 0,
+            valor: Number(dashboardData?.ingressos?.mes?.valor ?? 0) || 0,
+          },
+        },
+      };
+
+      setStats(normalized as DashboardStats);
+      setLogs(logsData || []);
     } catch (error) {
       console.error('Error fetching dashboard', error);
     } finally {
@@ -55,10 +88,10 @@ const ControlePage: React.FC = () => {
   if (loading) return <div className="flex items-center justify-center h-full"><div className="animate-spin h-12 w-12 border-4 border-[#00C3F2] border-t-transparent rounded-full"></div></div>;
 
   const summaryCards = [
-    { label: 'Saldo em Cartões', value: `R$ ${stats?.cartoes.saldoTotal.toFixed(2)}`, sub: `${stats?.cartoes.ativos} cartões ativos`, icon: CreditCard, color: 'text-blue-600', bg: 'bg-blue-50' },
-    { label: 'Vendas Hoje', value: `R$ ${stats?.vendas.hoje.toFixed(2)}`, sub: `${stats?.transacoes.hoje} transações`, icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50' },
-    { label: 'Estoque Baixo', value: stats?.estoque.baixoEstoque, sub: `De ${stats?.estoque.totalItens} itens totais`, icon: Package, color: 'text-orange-600', bg: 'bg-orange-50' },
-    { label: 'Ingressos Vendidos', value: stats?.ingressos.total, sub: `Total arrecadado: R$ 0,00`, icon: Ticket, color: 'text-purple-600', bg: 'bg-purple-50' },
+    { label: 'Saldo em Cartões', value: `R$ ${(stats?.cartoes.saldoTotal ?? 0).toFixed(2)}`, sub: `${stats?.cartoes.ativos ?? 0} cartões ativos`, icon: CreditCard, color: 'text-blue-600', bg: 'bg-blue-50' },
+    { label: 'Vendas Hoje', value: `R$ ${(stats?.vendas.hoje ?? 0).toFixed(2)}`, sub: `${stats?.transacoes.hoje ?? 0} transações`, icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50' },
+    { label: 'Estoque Baixo', value: stats?.estoque.baixo ?? 0, sub: `De ${stats?.estoque.total ?? 0} itens totais`, icon: Package, color: 'text-orange-600', bg: 'bg-orange-50' },
+    { label: 'Ingressos Vendidos', value: stats?.ingressos.total ?? 0, sub: `Hoje: R$ ${(stats?.ingressos.hoje?.valor ?? 0).toFixed(2)}`, icon: Ticket, color: 'text-purple-600', bg: 'bg-purple-50' },
   ];
 
   // Dummy chart data
@@ -122,7 +155,7 @@ const ControlePage: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Sales Chart */}
-            <div className="lg:col-span-2 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+            <div className="lg:col-span-2 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm min-h-[320px]">
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-blue-50 text-[#00C3F2] rounded-xl">
@@ -135,8 +168,8 @@ const ControlePage: React.FC = () => {
                   <option>Ingressos (Uni)</option>
                 </select>
               </div>
-              <div className="h-64 w-full">
-                <ResponsiveContainer width="100%" height="100%">
+              <div className="h-64 w-full min-h-[260px]">
+                <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={260}>
                   <BarChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
                     <XAxis 
@@ -171,8 +204,8 @@ const ControlePage: React.FC = () => {
                 <Clock size={20} className="text-[#00C3F2]" /> Atividade Recente
               </h3>
               <div className="space-y-6 flex-1 overflow-y-auto max-h-[250px] pr-2 scrollbar-hide">
-                {logs.slice(0, 5).map(log => (
-                  <div key={log.id} className="flex gap-4 group">
+                {logs.slice(0, 5).map((log, idx) => (
+                  <div key={log.id || `${log.data}-${idx}`} className="flex gap-4 group">
                     <div className={`mt-1 h-2 w-2 rounded-full shrink-0 ${
                       log.tipo === 'success' ? 'bg-green-400' : log.tipo === 'warning' ? 'bg-orange-400' : 'bg-[#00C3F2]'
                     } shadow-[0_0_8px_rgba(0,195,242,0.5)]`}></div>
@@ -212,8 +245,8 @@ const ControlePage: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
-                {logs.map(log => (
-                  <tr key={log.id} className="hover:bg-gray-50/50 transition-colors">
+                {logs.map((log, idx) => (
+                  <tr key={log.id || `${log.data}-${idx}`} className="hover:bg-gray-50/50 transition-colors">
                     <td className="px-6 py-4 text-xs font-mono text-gray-400">{new Date(log.data).toLocaleString()}</td>
                     <td className="px-6 py-4">
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase ${
