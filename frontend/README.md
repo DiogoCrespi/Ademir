@@ -1,51 +1,20 @@
-# Frontend - Ademir Sistema
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Frontend isolado em container Docker separado do backend.
+# Run and deploy your AI Studio app
 
-## Estrutura
+This contains everything you need to run your app locally.
 
-- `Dockerfile` - Configuração do container Nginx
-- `docker-compose.yml` - Orquestração do frontend
-- Arquivos HTML/JS do frontend
+View your app in AI Studio: https://ai.studio/apps/temp/1
 
-## Como usar
+## Run Locally
 
-### Iniciar o frontend
+**Prerequisites:**  Node.js
 
-```bash
-cd frontend
-docker-compose up -d --build
-```
 
-### Parar o frontend
-
-```bash
-cd frontend
-docker-compose down
-```
-
-### Ver logs
-
-```bash
-cd frontend
-docker-compose logs -f frontend
-```
-
-## Acesso
-
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:3100/api (via proxy do nginx)
-- **Swagger Docs**: http://localhost:3000/api-docs (via proxy do nginx)
-
-## Requisitos
-
-- Backend deve estar rodando na rede `docker_ademir-network`
-- Backend deve estar acessível como `backend:3100` na rede Docker
-
-## Configuração
-
-O nginx está configurado para:
-- Servir arquivos estáticos do frontend
-- Fazer proxy das requisições `/api/*` para o backend
-- Suportar SPA (Single Page Application) com fallback para `index.html`
-
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

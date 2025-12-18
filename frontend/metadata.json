@@ -1,0 +1,8 @@
+
+{
+  "name": "Ademir Event System",
+  "description": "A modern event and bar management system with prepaid cards, inventory control, ticketing, and real-time dashboarding.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
