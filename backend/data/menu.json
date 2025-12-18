@@ -1,0 +1,71 @@
+{
+  "categorias": [
+    {
+      "id": "bebidas",
+      "titulo": "Bebidas",
+      "img": "https://i.ibb.co/8DWyqRjT/refrigerante.png",
+      "ativo": true
+    },
+    {
+      "id": "porcoes",
+      "titulo": "Porções",
+      "img": "https://i.ibb.co/qFxWFY7Y/porcao.png",
+      "ativo": true
+    },
+    {
+      "id": "burger",
+      "titulo": "Burger",
+      "img": "https://i.ibb.co/sphwvfNN/hamburguer.png",
+      "ativo": true
+    }
+  ],
+  "itens": [
+    {
+      "id": "coca",
+      "nome": "Coca-Cola Lata",
+      "preco": 6,
+      "desc": "350ml gelada",
+      "ativo": true,
+      "categoriaId": "bebidas"
+    },
+    {
+      "id": "guarana",
+      "nome": "Guaraná Lata",
+      "preco": 5.5,
+      "desc": "350ml",
+      "ativo": true,
+      "categoriaId": "bebidas"
+    },
+    {
+      "id": "batata",
+      "nome": "Batata Frita",
+      "preco": 24,
+      "desc": "500g crocante",
+      "ativo": true,
+      "categoriaId": "porcoes"
+    },
+    {
+      "id": "iscas",
+      "nome": "Iscas de Frango",
+      "preco": 32,
+      "desc": "500g com molho",
+      "ativo": true,
+      "categoriaId": "porcoes"
+    },
+    {
+      "id": "cheeseburger",
+      "nome": "Cheeseburger",
+      "preco": 28,
+      "desc": "160g, queijo, salada",
+      "ativo": true,
+      "categoriaId": "burger"
+    },
+    {
+      "id": "cheddar",
+      "nome": "Cheddar Bacon",
+      "preco": 32,
+      "desc": "Cheddar cremoso e bacon",
+      "ativo": true,
+      "categoriaId": "burger"
+    }
+  ]

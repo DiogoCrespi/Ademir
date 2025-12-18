@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "data": "2025-12-18T15:00:00Z",
+    "tipo": "entrada",
+    "local": "geladeiras",
+    "produto": "Teste",
+    "quantidade": 1,
+    "valorUnitario": 10,
+    "total": 10
+  }
+]

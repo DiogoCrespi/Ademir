@@ -29,6 +29,8 @@ import {
   Pie
 } from 'recharts';
 
+const USE_MOCK_CHART = false; // Defina true para exibir dados de exemplo no gráfico
+
 const ControlePage: React.FC = () => {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [logs, setLogs] = useState<AppLog[]>([]);
@@ -94,8 +96,8 @@ const ControlePage: React.FC = () => {
     { label: 'Ingressos Vendidos', value: stats?.ingressos.total ?? 0, sub: `Hoje: R$ ${(stats?.ingressos.hoje?.valor ?? 0).toFixed(2)}`, icon: Ticket, color: 'text-purple-600', bg: 'bg-purple-50' },
   ];
 
-  // Dummy chart data
-  const chartData = [
+  // Dados do gráfico (mock desativado por padrão)
+  const chartData = USE_MOCK_CHART ? [
     { name: 'Seg', valor: 450 },
     { name: 'Ter', valor: 680 },
     { name: 'Qua', valor: 320 },
@@ -103,7 +105,7 @@ const ControlePage: React.FC = () => {
     { name: 'Sex', valor: 1200 },
     { name: 'Sáb', valor: 2100 },
     { name: 'Dom', valor: 1800 },
-  ];
+  ] : [];
 
   return (
     <div className="space-y-8 pb-12">
@@ -169,32 +171,38 @@ const ControlePage: React.FC = () => {
                 </select>
               </div>
               <div className="h-64 w-full min-h-[260px]">
-                <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={260}>
-                  <BarChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                    <XAxis 
-                      dataKey="name" 
-                      axisLine={false} 
-                      tickLine={false} 
-                      tick={{ fontSize: 12, fill: '#94a3b8' }} 
-                      dy={10}
-                    />
-                    <YAxis 
-                      axisLine={false} 
-                      tickLine={false} 
-                      tick={{ fontSize: 12, fill: '#94a3b8' }} 
-                    />
-                    <Tooltip 
-                      cursor={{ fill: '#f8fafc' }}
-                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                    />
-                    <Bar dataKey="valor" radius={[6, 6, 0, 0]} barSize={32}>
-                      {chartData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={index === 5 ? '#00C3F2' : '#e2e8f0'} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                {chartData.length === 0 ? (
+                  <div className="h-full flex items-center justify-center text-sm text-gray-400">
+                    Sem dados de gráfico disponíveis.
+                  </div>
+                ) : (
+                  <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={260}>
+                    <BarChart data={chartData}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                      <XAxis 
+                        dataKey="name" 
+                        axisLine={false} 
+                        tickLine={false} 
+                        tick={{ fontSize: 12, fill: '#94a3b8' }} 
+                        dy={10}
+                      />
+                      <YAxis 
+                        axisLine={false} 
+                        tickLine={false} 
+                        tick={{ fontSize: 12, fill: '#94a3b8' }} 
+                      />
+                      <Tooltip 
+                        cursor={{ fill: '#f8fafc' }}
+                        contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                      />
+                      <Bar dataKey="valor" radius={[6, 6, 0, 0]} barSize={32}>
+                        {chartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={index === 5 ? '#00C3F2' : '#e2e8f0'} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                )}
               </div>
             </div>
 

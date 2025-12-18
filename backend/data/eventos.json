@@ -1,10 +1,20 @@
 [
   {
-    "nome": "tes",
-    "data": "200000-02-29T00:00",
-    "descricao": "5555",
-    "id": "1766068574210",
-    "finalizado": true,
-    "dataFinalizacao": "2025-12-18T14:36:18.904Z"
+    "id": 1,
+    "nome": "Festival de Verão",
+    "finalizado": false,
+    "itens": [
+      {
+        "nome": "Cerveja Long Neck",
+        "quantidadeInicial": 200,
+        "quantidadeConsumida": 40
+      },
+      {
+        "nome": "Batata Frita",
+        "quantidadeInicial": 80,
+        "quantidadeConsumida": 10
+      }
+    ],
+    "dataCriacao": "2025-12-18T14:54:52.505Z"
   }
 ]

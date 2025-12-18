@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1766069692494,
+    "cartaoId": 1,
+    "cartaoNumero": "1111 2222 3333 4444",
+    "tipo": "recarga",
+    "valor": 100,
+    "saldoAnterior": 20.5,
+    "saldoAtual": 120.5,
+    "data": "2025-12-18T14:54:52.494Z",
+    "descricao": "Recarga inicial"
+  },
+  {
+    "id": 1766069692497,
+    "cartaoId": 2,
+    "cartaoNumero": "5555 6666 7777 8888",
+    "tipo": "compra",
+    "valor": 25,
+    "saldoAnterior": 100,
+    "saldoAtual": 75,
+    "data": "2025-12-18T14:54:52.496Z",
+    "itens": [
+      {
+        "nome": "Batata Frita",
+        "quantidade": 1,
+        "preco": 25
+      }
+    ],
+    "descricao": "Compra de porção"
+  }
+]

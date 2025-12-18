@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1766069692511,
+    "codigo": "ING001",
+    "tipo": "normal",
+    "valor": 20,
+    "dataVenda": "2025-12-18T14:54:52.511Z",
+    "dataVendaDate": "2025-12-18",
+    "liberado": false,
+    "dataLiberacao": null,
+    "formaPagamento": "dinheiro"
+  }
+]

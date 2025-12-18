@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "numero": "1111 2222 3333 4444",
+    "nome": "João Silva",
+    "saldo": 120.5,
+    "ativo": true
+  },
+  {
+    "id": 2,
+    "numero": "5555 6666 7777 8888",
+    "nome": "Maria Souza",
+    "saldo": 75,
+    "ativo": true
+  },
+  {
+    "id": 3,
+    "numero": "9999 0000 1111 2222",
+    "nome": "Cliente Inativo",
+    "saldo": 10,
+    "ativo": false
+  }
+]

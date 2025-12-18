@@ -1,0 +1,41 @@
+{
+  "geladeiras": [
+    {
+      "id": "g1",
+      "nome": "Coca-Cola Lata",
+      "quantidade": 30,
+      "valorUnitario": 4.5,
+      "updatedAt": "2025-12-18T14:54:52.500Z"
+    },
+    {
+      "id": "g2",
+      "nome": "Guaraná Lata",
+      "quantidade": 25,
+      "valorUnitario": 4,
+      "updatedAt": "2025-12-18T14:54:52.500Z"
+    },
+    {
+      "id": "g3",
+      "nome": "Heineken 330ml",
+      "quantidade": 40,
+      "valorUnitario": 8,
+      "updatedAt": "2025-12-18T14:54:52.500Z"
+    }
+  ],
+  "cameraFria": [
+    {
+      "id": "c1",
+      "nome": "Batata Frita",
+      "quantidade": 15,
+      "valorUnitario": 12,
+      "updatedAt": "2025-12-18T14:54:52.500Z"
+    },
+    {
+      "id": "c2",
+      "nome": "Iscas de Frango",
+      "quantidade": 10,
+      "valorUnitario": 16,
+      "updatedAt": "2025-12-18T14:54:52.500Z"
+    }
+  ]
+}

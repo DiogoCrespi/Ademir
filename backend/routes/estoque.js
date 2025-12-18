@@ -6,7 +6,25 @@ const router = express.Router();
 router.get('/estoque', (req, res) => {
   try {
     const estoque = readDataFile('estoque.json', { geladeiras: [], cameraFria: [] });
-    res.json(estoque);
+
+    // Normalizar itens para incluir campos esperados pelo front
+    const normalize = (arr, local) => (arr || []).map(item => ({
+      ...item,
+      local,
+      estoqueMinimo: item.estoqueMinimo ?? 5,
+      categoria: item.categoria ?? (local === 'geladeiras' ? 'Bebidas' : 'Alimentos'),
+      valorUnitario: typeof item.valorUnitario === 'number'
+        ? item.valorUnitario
+        : parseFloat(item.valorUnitario || 0) || 0,
+      quantidade: typeof item.quantidade === 'number'
+        ? item.quantidade
+        : parseFloat(item.quantidade || 0) || 0,
+    }));
+
+    res.json({
+      geladeiras: normalize(estoque.geladeiras, 'geladeiras'),
+      cameraFria: normalize(estoque.cameraFria, 'cameraFria'),
+    });
   } catch (error) {
     console.error('Erro ao ler estoque:', error);
     res.status(500).json({ error: 'Erro ao carregar estoque' });
