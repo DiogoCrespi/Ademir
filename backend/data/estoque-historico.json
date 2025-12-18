@@ -8,5 +8,49 @@
     "quantidade": 1,
     "valorUnitario": 10,
     "total": 10
+  },
+  {
+    "id": "1766070460538",
+    "data": "2025-12-18T15:07:40.538Z",
+    "tipo": "entrada",
+    "local": "geladeiras",
+    "produto": "Coca-Cola Lata",
+    "quantidade": 1,
+    "valorUnitario": 4.5,
+    "total": 4.5,
+    "observacao": "Entrada manual via admin"
+  },
+  {
+    "id": "1766070547191",
+    "data": "2025-12-18T15:09:07.191Z",
+    "tipo": "entrada",
+    "local": "geladeiras",
+    "produto": "Coca-Cola Lata",
+    "quantidade": 1,
+    "valorUnitario": 4.5,
+    "total": 4.5,
+    "observacao": "Entrada manual via admin"
+  },
+  {
+    "id": "1766070561521",
+    "data": "2025-12-18T15:09:21.521Z",
+    "tipo": "entrada",
+    "local": "geladeiras",
+    "produto": "Guaraná Lata",
+    "quantidade": 1,
+    "valorUnitario": 4,
+    "total": 4,
+    "observacao": "Entrada manual via admin"
+  },
+  {
+    "id": "1766070699298",
+    "data": "2025-12-18T15:11:39.298Z",
+    "tipo": "entrada",
+    "local": "geladeiras",
+    "produto": "Heineken 330ml",
+    "quantidade": 1,
+    "valorUnitario": 8,
+    "total": 8,
+    "observacao": "Entrada manual via admin"
   }
 ]

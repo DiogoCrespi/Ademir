@@ -62,9 +62,12 @@ const AdminEstoquePage: React.FC = () => {
     }
   };
 
+  const safeIncludes = (text: string | undefined, term: string) =>
+    (text || '').toLowerCase().includes(term.toLowerCase());
+
   const filteredItems = activeTab === 'historico' 
-    ? history.filter(h => h.produto.toLowerCase().includes(search.toLowerCase()))
-    : stock[activeTab].filter(i => i.nome.toLowerCase().includes(search.toLowerCase()));
+    ? history.filter(h => safeIncludes(h.produto, search))
+    : stock[activeTab].filter(i => safeIncludes(i.nome, search));
 
   if (loading) return <div className="flex items-center justify-center h-full"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00C3F2]"></div></div>;
 
@@ -155,7 +158,7 @@ const AdminEstoquePage: React.FC = () => {
             <tbody className="divide-y divide-gray-50 text-sm">
               {(filteredItems as StockHistory[]).map(h => (
                 <tr key={h.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 text-gray-400 font-mono text-xs">{new Date(h.data).toLocaleString()}</td>
+                  <td className="px-6 py-4 text-gray-400 font-mono text-xs">{new Date(h.data || Date.now()).toLocaleString()}</td>
                   <td className="px-6 py-4">
                     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${h.tipo === 'entrada' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                       {h.tipo === 'entrada' ? <TrendingUp size={10} /> : <TrendingDown size={10} />} {h.tipo}
@@ -164,8 +167,8 @@ const AdminEstoquePage: React.FC = () => {
                   <td className="px-6 py-4 capitalize text-gray-500">{h.local.replace(/([A-Z])/g, ' $1')}</td>
                   <td className="px-6 py-4 font-bold">{h.produto}</td>
                   <td className="px-6 py-4">{h.quantidade}</td>
-                  <td className="px-6 py-4 text-gray-400">R$ {h.valorUnitario.toFixed(2)}</td>
-                  <td className="px-6 py-4 font-bold text-[#00C3F2]">R$ {h.total.toFixed(2)}</td>
+                  <td className="px-6 py-4 text-gray-400">R$ {(h.valorUnitario ?? 0).toFixed(2)}</td>
+                  <td className="px-6 py-4 font-bold text-[#00C3F2]">R$ {(h.total ?? 0).toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>

@@ -3,23 +3,32 @@
     {
       "id": "g1",
       "nome": "Coca-Cola Lata",
-      "quantidade": 30,
+      "quantidade": 32,
       "valorUnitario": 4.5,
-      "updatedAt": "2025-12-18T14:54:52.500Z"
+      "updatedAt": "2025-12-18T14:54:52.500Z",
+      "local": "geladeiras",
+      "estoqueMinimo": 5,
+      "categoria": "Bebidas"
     },
     {
       "id": "g2",
       "nome": "Guaraná Lata",
       "quantidade": 25,
       "valorUnitario": 4,
-      "updatedAt": "2025-12-18T14:54:52.500Z"
+      "updatedAt": "2025-12-18T14:54:52.500Z",
+      "local": "geladeiras",
+      "estoqueMinimo": 5,
+      "categoria": "Bebidas"
     },
     {
       "id": "g3",
       "nome": "Heineken 330ml",
-      "quantidade": 40,
+      "quantidade": 42,
       "valorUnitario": 8,
-      "updatedAt": "2025-12-18T14:54:52.500Z"
+      "updatedAt": "2025-12-18T14:54:52.500Z",
+      "local": "geladeiras",
+      "estoqueMinimo": 5,
+      "categoria": "Bebidas"
     }
   ],
   "cameraFria": [
@@ -28,14 +37,20 @@
       "nome": "Batata Frita",
       "quantidade": 15,
       "valorUnitario": 12,
-      "updatedAt": "2025-12-18T14:54:52.500Z"
+      "updatedAt": "2025-12-18T14:54:52.500Z",
+      "local": "cameraFria",
+      "estoqueMinimo": 5,
+      "categoria": "Alimentos"
     },
     {
       "id": "c2",
       "nome": "Iscas de Frango",
       "quantidade": 10,
       "valorUnitario": 16,
-      "updatedAt": "2025-12-18T14:54:52.500Z"
+      "updatedAt": "2025-12-18T14:54:52.500Z",
+      "local": "cameraFria",
+      "estoqueMinimo": 5,
+      "categoria": "Alimentos"
     }
   ]
 }
